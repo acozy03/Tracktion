@@ -1,24 +1,8 @@
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2022",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "composite": true,                       // Enable composite project
+    "declaration": true,                     // Emit declaration files (.d.ts)
+    "emitDeclarationOnly": false             // Ensure both JS and d.ts files are emitted
   },
-  "include": ["vite.config.ts"]
+  "include": ["src/**/*.ts"]                 // Include all .ts files in src folder
 }
