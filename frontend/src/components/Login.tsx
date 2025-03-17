@@ -51,7 +51,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   function buildPath(route: string): string {
-    return `https://tracktion-backend.vercel.app/${route}`
+    return `https://tracktion-backend.vercel.app${route}`
       
   }
 

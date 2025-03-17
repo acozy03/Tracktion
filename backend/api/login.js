@@ -2,6 +2,8 @@ require('dotenv').config();
 const { MongoClient } = require('mongodb');
 const mongoUri = process.env.MONGODB_URL;
 console.log('MongoDB URI:', mongoUri);
+const setCorsHeaders = require('./cors');  // Import the CORS utility
+
 
 if (!mongoUri) {
   console.error('MongoDB connection string is missing');
@@ -10,6 +12,12 @@ if (!mongoUri) {
 const client = new MongoClient(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 module.exports = async (req, res) => {
+  setCorsHeaders(res);
+
+  // Handle preflight request (OPTIONS method)
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();  // Respond with 200 for OPTIONS requests
+  }
   const { login, password } = req.body;
 
   await client.connect();
