@@ -124,7 +124,7 @@ app.post('/api/register', async (req, res) => {
     };
     await usersCollection.insertOne(newUser);
     
-    const verificationLink = `https://tracktion-jade.vercel.app/api/verify-email?token=${verificationToken}`;
+    const verificationLink = `https://tracktion-backend.vercel.app/api/verify-email?token=${verificationToken}`;
     await sendEmail(
       email,
       'Verify Your Email',
@@ -199,7 +199,7 @@ app.post('/api/registerMobile', async (req, res) => {
 
     await usersCollection.insertOne(newUser);
 
-    const verificationLink = `https://tracktion-jade.vercel.app/api/verify-email?token=${verificationToken}`;
+    const verificationLink = `https://tracktion-backend.vercel.app/api/verify-email?token=${verificationToken}`;
     console.log('Sending verification email to:', normalizedEmail);
     await sendEmail(
       normalizedEmail,
@@ -267,7 +267,7 @@ app.post('/api/resend-verification', async (req, res) => {
       { $set: { VerificationToken: verificationToken } }
     );
 
-    const verificationLink = `https://tracktion-jade.vercel.app/api/verify-email?token=${verificationToken}`;
+    const verificationLink = `https://tracktion-backend.vercel.app/api/verify-email?token=${verificationToken}`;
     await sendEmail(
       email,
       'Verify Your Email',
@@ -302,7 +302,7 @@ app.post('/api/forgot-password', async (req, res) => {
       { $set: { ResetToken: resetToken, ResetTokenExpiry: resetTokenExpiry } }
     );
 
-    const resetLink = `https://tracktion-jade.vercel.app/reset-password?token=${resetToken}`;
+    const resetLink = `https://tracktion-backend.vercel.app/reset-password?token=${resetToken}`;
     await sendEmail(
       email,
       'Password Reset Request',

@@ -17,7 +17,7 @@ const VerifyEmail = () => {
 
     const verifyToken = async () => {
       try {
-        const response = await fetch(`https://tracktion-jade.vercel.app/api/verify-email?token=${token}`);
+        const response = await fetch(`https://tracktion-backend.vercel.app/api/verify-email?token=${token}`);
         const data = await response.json();
         if (response.ok && data.success) {
           setMessage('Email verified successfully. Redirecting to login...');

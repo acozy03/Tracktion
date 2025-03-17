@@ -29,7 +29,7 @@ export default function ResetPassword() {
     }
 
     try {
-        const response = await fetch('https://tracktion-jade.vercel.app/api/reset-password', {
+        const response = await fetch('https://tracktion-backend.vercel.app/api/reset-password', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
