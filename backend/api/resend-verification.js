@@ -5,7 +5,7 @@ const setCorsHeaders = require('./cors');
 const client = new MongoClient(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
+  service: 'gmail', 
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
