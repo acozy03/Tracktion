@@ -1,6 +1,7 @@
 const { MongoClient } = require('mongodb');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
+const setCorsHeaders = require('./cors');
 const client = new MongoClient(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const transporter = nodemailer.createTransport({
@@ -13,6 +14,12 @@ const transporter = nodemailer.createTransport({
 });
 
 module.exports = async (req, res) => {
+  setCorsHeaders(res);
+
+  // Handle preflight request (OPTIONS method)
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();  // Respond with 200 for OPTIONS requests
+  }
   const { email } = req.body;
   try {
     await client.connect();
@@ -33,7 +40,7 @@ module.exports = async (req, res) => {
       { $set: { VerificationToken: verificationToken } }
     );
 
-    const verificationLink = `https://tracktion-jade.vercel.app/login/api/verify-email?token=${verificationToken}`;
+    const verificationLink = `https://tracktion-jade.vercel.app/api/verify-email?token=${verificationToken}`;
     await transporter.sendMail({
       from: process.env.EMAIL_FROM,
       to: email,
