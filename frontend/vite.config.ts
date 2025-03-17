@@ -7,9 +7,6 @@ export default defineConfig({
   server: {
     port: 5173,
   },
-  build: {
-    outDir: "frontend/dist",  // Ensure the build output goes to frontend/dist
-  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
