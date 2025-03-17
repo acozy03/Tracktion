@@ -52,7 +52,7 @@ export default function LoginPage() {
 
   function buildPath(route: string): string {
     return process.env.NODE_ENV === "development"
-      ? `http://localhost:5000${route}`
+      ? `https://tracktion-jade.vercel.app/${route}`
       : route;
   }
 

@@ -1,6 +1,6 @@
 import { Habit } from '../types/habit'
 
-const API_URL = 'http://localhost:5000/api/habits'
+const API_URL = 'https://tracktion-jade.vercel.app/api/habits'
 
 async function handleResponse(response: Response) {
   const contentType = response.headers.get("content-type");
@@ -15,7 +15,7 @@ async function handleResponse(response: Response) {
 
 
 export async function completeHabit(habitId: string): Promise<Habit> {
-  const response = await fetch(`http://localhost:5000/api/habits/${habitId}/complete`, {
+  const response = await fetch(`https://tracktion-jade.vercel.app/api/habits/${habitId}/complete`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export async function fetchHabits(UserID: string): Promise<Habit[]> {
 }
 
 export async function addHabit(habitData: Omit<Habit, '_id'>): Promise<Habit> {
-  const response = await fetch('http://localhost:5000/api/habits', {
+  const response = await fetch('https://tracktion-jade.vercel.app/api/habits', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ export async function addHabit(habitData: Omit<Habit, '_id'>): Promise<Habit> {
 }
 
 export async function editHabit(id: string, habitData: Partial<Habit>): Promise<Habit> {
-  const response = await fetch(`http://localhost:5000/api/habits/${id}`, {
+  const response = await fetch(`https://tracktion-jade.vercel.app/api/habits/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
