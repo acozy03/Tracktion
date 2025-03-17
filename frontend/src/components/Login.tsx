@@ -75,6 +75,7 @@ export default function LoginPage() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    
     if (isRegister) {
       if (!validateEmail(email)) {
         setMessage("Please enter a valid email address.");
@@ -96,7 +97,7 @@ export default function LoginPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),
       });
-
+      console.log("Submitting data", userData);
       const data = await response.json();
       console.log('Server response:', data);
 
