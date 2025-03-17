@@ -77,7 +77,7 @@ export async function editHabit(id: string, habitData: Partial<Habit>): Promise<
 
 export async function deleteHabit(id: string): Promise<void> {
   try {
-    const response = await fetch(`${API_URL}/delete${id}`, {
+    const response = await fetch(`${API_URL}/${id}/delete`, {
       method: 'DELETE',
     });
     if (!response.ok) {
