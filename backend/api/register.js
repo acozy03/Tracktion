@@ -1,4 +1,5 @@
 const { MongoClient } = require('mongodb');
+const setCorsHeaders = require('./cors');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const client = new MongoClient(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -13,6 +14,13 @@ const transporter = nodemailer.createTransport({
 });
 
 module.exports = async (req, res) => {
+  // Apply CORS headers
+  setCorsHeaders(res);
+
+  // Handle preflight request (OPTIONS method)
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();  // Respond with 200 for OPTIONS requests
+  }
   const { username, email, password, firstName, lastName } = req.body;
 
   try {
