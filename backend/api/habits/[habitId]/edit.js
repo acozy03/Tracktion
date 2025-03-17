@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
   }
 
   if (req.method === 'PUT') {
-    const { id } = req.params;
+    const { id } = req.query;
     const { name, frequency, goal } = req.body;
 
     if (!id || !name || !frequency || !goal) {

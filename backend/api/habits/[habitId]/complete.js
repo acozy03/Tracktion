@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
 
   // Ensure we are dealing with a PUT request
   if (req.method === 'PUT') {
-    const { habitId } = req.params;  // Get habitId from URL parameters
+    const { habitId } = req.query;  // Get habitId from URL parameters
 
     if (!habitId) {
       return res.status(400).json({ error: 'Habit ID is required' });

@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
   }
 
   if (req.method === 'DELETE') {
-    const { id } = req.params;
+    const { id } = req.query;
 
     if (!id) {
       return res.status(400).json({ error: 'ID is required' });
