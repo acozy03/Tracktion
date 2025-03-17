@@ -60,7 +60,7 @@ export async function addHabit(habitData: Omit<Habit, '_id'>): Promise<Habit> {
 }
 
 export async function editHabit(id: string, habitData: Partial<Habit>): Promise<Habit> {
-  const response = await fetch(`https://tracktion-backend.vercel.app/api/habits/${id}`, {
+  const response = await fetch(`https://tracktion-backend.vercel.app/api/habits/edit${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ export async function editHabit(id: string, habitData: Partial<Habit>): Promise<
 
 export async function deleteHabit(id: string): Promise<void> {
   try {
-    const response = await fetch(`${API_URL}/${id}`, {
+    const response = await fetch(`${API_URL}/delete${id}`, {
       method: 'DELETE',
     });
     if (!response.ok) {
