@@ -9,6 +9,9 @@ module.exports = async (req, res) => {
   setCorsHeaders(res);
 
   // Handle preflight request (OPTIONS method)
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();  // Respond with 200 for OPTIONS requests
+  }
 
   // Ensure we are dealing with a PUT request
   if (req.method === 'PUT') {

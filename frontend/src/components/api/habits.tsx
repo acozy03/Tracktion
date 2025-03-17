@@ -15,7 +15,7 @@ async function handleResponse(response: Response) {
 
 
 export async function completeHabit(habitId: string): Promise<Habit> {
-  const response = await fetch(`https://tracktion-backend.vercel.app/api/habits/${habitId}/complete`, {
+  const response = await fetch(`https://tracktion-backend.vercel.app/api/habits/complete`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
