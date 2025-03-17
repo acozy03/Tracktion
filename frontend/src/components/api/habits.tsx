@@ -32,7 +32,7 @@ export async function completeHabit(habitId: string): Promise<Habit> {
 
 export async function fetchHabits(UserID: string): Promise<Habit[]> {
   try {
-    const response = await fetch(`${API_URL}?UserID=${UserID}`);
+    const response = await fetch(`${API_URL}/fetch?UserID=${UserID}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -44,7 +44,7 @@ export async function fetchHabits(UserID: string): Promise<Habit[]> {
 }
 
 export async function addHabit(habitData: Omit<Habit, '_id'>): Promise<Habit> {
-  const response = await fetch('https://tracktion-backend.vercel.app/api/habits', {
+  const response = await fetch('https://tracktion-backend.vercel.app/api/habits/add', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
