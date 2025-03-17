@@ -71,7 +71,7 @@ module.exports = async (req, res) => {
       text: `Please click on the following link to verify your email: ${verificationLink}`
     });
 
-    res.status(201).json({ success: true, needsVerification: true });
+    res.status(201).json({ success: true, needsVerification: false });
   } catch (e) {
     console.error('Error during registration:', e);  // Log the error for debugging
     res.status(500).json({ success: false, error: 'An error occurred during registration' });
