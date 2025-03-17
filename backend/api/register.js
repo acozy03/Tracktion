@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
     const existingUser = await usersCollection.findOne({ $or: [{ Username: username }, { Email: email }] });
     if (existingUser) {
       if (!existingUser.IsVerified) {
-        return res.status(409).json({ success: false, error: 'User exists but is not verified', needsVerification: true });
+        return res.status(409).json({ success: false, error: 'User exists but is not verified', needsVerification: false });
       }
       return res.status(400).json({ success: false, error: 'Username or email already taken' });
     }
