@@ -43,7 +43,7 @@ module.exports = async (req, res) => {
     };
     await usersCollection.insertOne(newUser);
     
-    const verificationLink = `http://localhost:3000/api/verify-email?token=${verificationToken}`;
+    const verificationLink = `https://tracktion-jade.vercel.app/api/verify-email?token=${verificationToken}`;
     await transporter.sendMail({
       from: process.env.EMAIL_FROM,
       to: email,

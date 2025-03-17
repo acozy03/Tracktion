@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { MongoClient } = require('mongodb');
 const mongoUri = process.env.MONGODB_URL;
+console.log('MongoDB URI:', mongoUri);
 
 if (!mongoUri) {
   console.error('MongoDB connection string is missing');

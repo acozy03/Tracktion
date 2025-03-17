@@ -51,9 +51,8 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   function buildPath(route: string): string {
-    return process.env.NODE_ENV === "development"
-      ? `https://tracktion-backend.vercel.app/${route}`
-      : route;
+    return `https://tracktion-backend.vercel.app/${route}`
+      
   }
 
   useEffect(() => {

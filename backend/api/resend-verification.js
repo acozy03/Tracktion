@@ -33,7 +33,7 @@ module.exports = async (req, res) => {
       { $set: { VerificationToken: verificationToken } }
     );
 
-    const verificationLink = `http://localhost:3000/api/verify-email?token=${verificationToken}`;
+    const verificationLink = `https://tracktion-jade.vercel.app/login/api/verify-email?token=${verificationToken}`;
     await transporter.sendMail({
       from: process.env.EMAIL_FROM,
       to: email,

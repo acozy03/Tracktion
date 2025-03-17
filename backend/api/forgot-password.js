@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
       { $set: { ResetToken: resetToken, ResetTokenExpiry: resetTokenExpiry } }
     );
 
-    const resetLink = `http://localhost:3000/reset-password?token=${resetToken}`;
+    const resetLink = `https://tracktion-jade.vercel.app/reset-password?token=${resetToken}`;
     await transporter.sendMail({
       from: process.env.EMAIL_FROM,
       to: email,
