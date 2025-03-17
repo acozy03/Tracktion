@@ -1,20 +1,17 @@
 {
-  "compilerOptions": {
-    "target": "es6",                          // Set JavaScript target to ES6
-    "module": "commonjs",                     // Use CommonJS module system
-    "declaration": true,                      // Emit declaration files (.d.ts)
-    "outDir": "./dist",                       // Directory for output files
-    "rootDir": "./src",                       // Root directory for source files
-    "esModuleInterop": true,                  // Allow default imports
-    "skipLibCheck": true                      // Skip library checks for faster build
-  },
-  "include": ["src/**/*.ts"],                 // Include all .ts files in src folder
+  "files": [],
   "references": [
     {
-      "path": "./tsconfig.app.json"           // Reference to the application-specific config
+      "path": "./tsconfig.app.json"
     },
     {
-      "path": "./tsconfig.node.json"          // Reference to the node-specific config
+      "path": "./tsconfig.node.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
 }
