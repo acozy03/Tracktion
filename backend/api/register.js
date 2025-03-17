@@ -57,7 +57,7 @@ module.exports = async (req, res) => {
       LastName: lastName,
       UserID: newUserID,
       VerificationToken: verificationToken,
-      IsVerified: false
+      IsVerified: true
     };
 
     await usersCollection.insertOne(newUser);
