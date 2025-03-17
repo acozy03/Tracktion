@@ -1,5 +1,11 @@
 require('dotenv').config();
 const { MongoClient } = require('mongodb');
+const mongoUri = process.env.MONGODB_URL;
+
+if (!mongoUri) {
+  console.error('MongoDB connection string is missing');
+  process.exit(1);  // Exit the process if the connection string is missing
+}
 const client = new MongoClient(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 module.exports = async (req, res) => {
