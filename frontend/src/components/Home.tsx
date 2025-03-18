@@ -45,7 +45,7 @@ export default function Component() {
         console.error("First name not found in localStorage");
       }
     } else {
-      navigate("/login");
+      navigate("/");
     }
   }, [navigate]);
 
