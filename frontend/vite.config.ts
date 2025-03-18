@@ -10,7 +10,4 @@ export default defineConfig({
     },
   },
   base: './',  // Ensure base path is correct for deployment
-  build: {
-    outDir: 'frontend/dist',  // Ensure the output directory is correct
-  },
 });
