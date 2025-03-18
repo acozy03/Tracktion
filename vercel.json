@@ -14,9 +14,8 @@
         "use": "@vercel/node"
       }
     ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "/backend/api/$1" },
-      { "src": "/assets/(.*)", "dest": "/frontend/dist/assets/$1" },
-      { "src": "/(.*)", "dest": "/frontend/dist/index.html" }
-    ]
+    "rewrites": [
+    { "source": "/api/(.*)", "destination": "/backend/api/$1" },
+    { "source": "/(.*)", "destination": "/dist" }
+  ]
   }
