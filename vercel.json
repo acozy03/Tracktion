@@ -10,11 +10,5 @@
       "src": "backend/api/*.js",
       "use": "@vercel/node"
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "dist/index.html"
-    }
   ]
 }
