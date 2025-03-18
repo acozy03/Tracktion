@@ -9,5 +9,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-  base: "/",  // ✅ Forces Vite to use relative paths
+  base: "./",  // ✅ Forces Vite to use relative paths
 });
