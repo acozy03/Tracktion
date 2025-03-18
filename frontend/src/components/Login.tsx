@@ -17,7 +17,7 @@ import {
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import background from "../assets/background.png";
 import homeScreen from "../assets/home-screen.png";
-import HomePage from "../pages/HomePage";
+
 
 const theme = createTheme({
   typography: {
@@ -109,9 +109,7 @@ export default function LoginPage() {
           if (data.id !== -1) {
             localStorage.setItem('userId', data.id.toString());
             localStorage.setItem('firstName', data.firstName);
-            return (
-              <HomePage />
-            );
+            navigate("/home");
           } else {
             setMessage(data.error || "An error occurred during login.");
           }
