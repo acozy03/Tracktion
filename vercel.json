@@ -12,7 +12,9 @@
     }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/backend/api/$1.js" },
-    { "source": "/(.*)", "destination": "/frontend/dist/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
