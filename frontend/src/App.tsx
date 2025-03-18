@@ -29,7 +29,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/" />
+        <Route path="/" element={<LoginPage />} />
       </Routes>
     </Router>
   );
