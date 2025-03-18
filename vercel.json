@@ -3,16 +3,20 @@
     "builds": [
       {
         "src": "frontend/package.json",
-        "use": "@vercel/static-build"
+        "use": "@vercel/static-build",
+        "config": { 
+          "distDir": "dist",
+          "buildCommand": "cd frontend && npm run build"
+        }
       },
       {
-        "src": "backend/api/*.js",  
+        "src": "backend/api/**/*.js",  
         "use": "@vercel/node"
       }
     ],
     "routes": [
-      { "src": "/api/(.*)", "dest": "/backend/api/$1.js" },
-      { "handle": "filesystem" },
-      { "src": "/(.*)", "dest": "/dist/index.html" }
+      { "src": "/api/(.*)", "dest": "/backend/api/$1" },
+      { "src": "/assets/(.*)", "dest": "/frontend/dist/assets/$1" },
+      { "src": "/(.*)", "dest": "/frontend/dist/index.html" }
     ]
   }

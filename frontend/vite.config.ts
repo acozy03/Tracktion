@@ -9,9 +9,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
+  // Remove the base: './' if it's causing issues
   build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-    emptyOutDir: true
+    outDir: 'dist'
   }
 });
