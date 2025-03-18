@@ -15,6 +15,7 @@ const VerifyEmail = () => {
       return;
     }
 
+    // 
     const verifyToken = async () => {
       try {
         const response = await fetch(`https://tracktion-backend.vercel.app/api/verify-email?token=${token}`);
