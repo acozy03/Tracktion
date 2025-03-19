@@ -14,7 +14,7 @@
 // }
 
 // export default App;
-
+// what
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
@@ -29,7 +29,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/" element={<LoginPage />} />
       </Routes>
     </Router>
   );

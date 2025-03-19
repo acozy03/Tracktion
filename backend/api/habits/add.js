@@ -12,9 +12,9 @@ module.exports = async (req, res) => {
   }
 
   if (req.method === 'POST') {
-    const { name, frequency, goal, UserID } = req.body;
+    const { name, measurementType, measurementUnit, frequency, goal, UserID } = req.body;
 
-    if (!name || !frequency || !goal || !UserID) {
+    if (!name || !measurementType || !measurementUnit || !frequency || !goal || !UserID) {
       return res.status(400).json({ error: 'All fields are required' });
     }
 
@@ -23,16 +23,19 @@ module.exports = async (req, res) => {
       const db = client.db('LargeProject');
       const newHabit = {
         name,
+        measurementType,
+        measurementUnit,
         frequency,
         goal,
         UserID,
-        streak: 0,  // Example default value for streak
-        lastCompleted: null,  // Default value
+        streak: 0,
+        lastCompleted: null,
       };
 
       const result = await db.collection('habits').insertOne(newHabit);
       res.status(201).json({ ...newHabit, _id: result.insertedId });
     } catch (error) {
+      console.error('Error adding habit:', error);
       res.status(500).json({ error: 'An error occurred adding the habit' });
     } finally {
       await client.close();
