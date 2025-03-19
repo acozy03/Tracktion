@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
   }
 
   const { habitId } = req.query;  // Extract habitId from query parameters
-
+  console.log("Editing", habitId);
   if (!habitId) {
     return res.status(400).json({ error: 'Habit ID is required' });
   }
