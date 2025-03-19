@@ -78,7 +78,7 @@ export async function editHabit(id: string, habitData: Partial<Habit>): Promise<
 
 export async function deleteHabit(id: string): Promise<void> {
   try {
-    const response = await fetch(`${API_URL}/${id}/delete`, {
+    const response = await fetch(`https://tracktion-backend.vercel.app/api/habits/${id}/delete`, {
       method: 'DELETE',
     });
     if (!response.ok) {

@@ -21,6 +21,9 @@ module.exports = async (req, res) => {
     try {
       await client.connect();
       const db = client.db('LargeProject');
+      console.log("reached 1");
+      const test = await db.collection('habits').findOne({ _id: new ObjectHabitId(habitId) });
+      console.log("reached 2 : ", test); 
       const result = await db.collection('habits').deleteOne({ _id: new ObjectHabitId(habitId) });
 
       if (result.deletedCount === 0) {
