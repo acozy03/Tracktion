@@ -12,16 +12,16 @@ module.exports = async (req, res) => {
   }
 
   if (req.method === 'DELETE') {
-    const { id } = req.query;
-    console.log('Received DELETE request with ID:', id);
-    if (!id) {
+    const { habitId } = req.params;
+    console.log('Received DELETE request with ID:', habitId);
+    if (!habitId) {
       return res.status(400).json({ error: 'ID is required' });
     }
 
     try {
       await client.connect();
       const db = client.db('LargeProject');
-      const result = await db.collection('habits').deleteOne({ _id: new ObjectId(id) });
+      const result = await db.collection('habits').deleteOne({ _id: new ObjectId(habitId) });
 
       if (result.deletedCount === 0) {
         return res.status(404).json({ error: 'Habit not found' });
