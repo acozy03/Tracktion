@@ -105,6 +105,7 @@ export default function Component() {
   
   async function handleDeleteHabit(id: string) {
     try {
+      console.log("Deleting habit with ID:", id);
       await deleteHabit(id)
       setHabits(prevHabits => prevHabits.filter(habit => habit._id !== id))
     } catch (error) {
@@ -128,7 +129,7 @@ export default function Component() {
   function handleLogout() {
     localStorage.removeItem("userId");
     localStorage.removeItem("firstName");
-    navigate("/login");
+    navigate("/");
   }
 
   function handleEditHabit(habit: Habit) {

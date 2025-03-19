@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
 
   if (req.method === 'DELETE') {
     const { id } = req.query;
-
+    console.log('Received DELETE request with ID:', id);
     if (!id) {
       return res.status(400).json({ error: 'ID is required' });
     }
