@@ -165,10 +165,11 @@ export default function Component() {
   }
 
   const filteredHabits = habits.filter(habit => 
-    habit.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    habit.measurementUnit.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    habit.frequency.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+    habit?.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    habit?.measurementUnit?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    habit?.frequency?.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  
 
   return (
     <div className="flex h-screen bg-white font-sans">
