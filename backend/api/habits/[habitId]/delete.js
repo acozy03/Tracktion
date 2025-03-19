@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
     try {
       await client.connect();
       const db = client.db('LargeProject');
-      const result = await db.collection('habits').deleteOne({ _habitId: new ObjectHabitId(habitId) });
+      const result = await db.collection('habits').deleteOne({ _id: new ObjectHabitId(habitId) });
 
       if (result.deletedCount === 0) {
         return res.status(404).json({ error: 'Habit not found' });
